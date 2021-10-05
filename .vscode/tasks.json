@@ -1,0 +1,155 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build debug",
+            "type": "process",
+            "command": "make",
+            "args": [
+                "PLATFORM=PLATFORM_DESKTOP",
+                "BUILD_MODE=DEBUG"
+            ],
+            "windows": {
+                "command": "C:/raylib/mingw/bin/mingw32-make.exe",
+                "args": [
+                    "RAYLIB_PATH=C:/raylib/raylib",
+                    "OBJS=src/*.cpp",
+                    "BUILD_MODE=DEBUG",
+                ]
+            },
+            "osx": {
+                "args": [
+                    "OBJS=src/*.cpp",
+                    "BUILD_MODE=DEBUG",
+                ]
+            },
+            "linux": {
+                "args": [
+                    "RAYLIB_LIBTYPE=SHARED",
+                    "OBJS=src/*.cpp",
+                    "BUILD_MODE=DEBUG",
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "build release",
+            "type": "process",
+            "command": "make",
+            "args": [
+                "PLATFORM=PLATFORM_DESKTOP"
+            ],
+            "windows": {
+                "command": "C:/raylib/mingw/bin/mingw32-make.exe",
+                "args": [
+                    "RAYLIB_PATH=C:/raylib/raylib",
+                    "OBJS=src/*.cpp"
+                ]
+            },
+            "osx": {
+                "args": [
+                    "OBJS=src/*.cpp"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "RAYLIB_LIBTYPE=SHARED",
+                    "OBJS=src/*.cpp"
+                ]
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "compiler: C:\\raylib\\mingw\\bin\\g++.exe"
+        },
+        {
+            "label": "build debug WEB",
+            "type": "process",
+            "command": "make",
+            "args": [
+                "PLATFORM=PLATFORM_WEB",
+                "BUILD_MODE=DEBUG"
+            ],
+            "windows": {
+                "command": "C:/raylib/mingw/bin/mingw32-make.exe",
+                "args": [
+                    "PLATFORM=PLATFORM_WEB",
+                    "RAYLIB_PATH=C:/raylib/raylib",
+                    "OBJS=src/*.cpp",
+                    "BUILD_MODE=DEBUG"
+                ]
+            },
+            "osx": {
+                "args": [
+                    "PLATFORM=PLATFORM_WEB",
+                    "OBJS=src/*.cpp",
+                    "BUILD_MODE=DEBUG"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "PLATFORM=PLATFORM_WEB",
+                    "RAYLIB_LIBTYPE=SHARED",
+                    "OBJS=src/*.cpp",
+                    "BUILD_MODE=DEBUG"
+                ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "build release WEB",
+            "type": "process",
+            "command": "make",
+            "args": [
+                "PLATFORM=PLATFORM_WEB",
+            ],
+            "windows": {
+                "command": "C:/raylib/mingw/bin/mingw32-make.exe",
+                "args": [
+                    "PLATFORM=PLATFORM_WEB",
+                    "RAYLIB_PATH=C:/raylib/raylib",
+                    "OBJS=src/*.cpp"
+                ]
+            },
+            "osx": {
+                "args": [
+                    "PLATFORM=PLATFORM_WEB",
+                    "OBJS=src/*.cpp"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "PLATFORM=PLATFORM_WEB",
+                    "RAYLIB_LIBTYPE=SHARED",
+                    "OBJS=src/*.cpp"
+                ]
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "compiler: C:\\raylib\\mingw\\bin\\g++.exe"
+        }
+    ]
+}
