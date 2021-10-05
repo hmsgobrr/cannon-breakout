@@ -3,11 +3,30 @@
 #include "GameUtils.h"
 #include "Game.h"
 
+#if defined(PLATFORM_WEB)
+#include <emscripten/emscripten.h>
+#endif
+
+Texture2D vignetteVFX;
+
+void gameLoop() {
+    Game::update(GetFrameTime());
+
+    BeginDrawing();
+    ClearBackground(GUNMETAL);
+
+    Game::draw();
+
+    DrawTexture(vignetteVFX, 0, 0, Fade(WHITE, 0.3f));
+
+    EndDrawing();
+}
+
 int main(void) {
     InitWindow(Game::sWidth, Game::sHeight, "Cannon Breakout");
     InitAudioDevice();
 
-    Texture2D vignetteVFX = LoadTexture("assets/vignette.png");
+    vignetteVFX = LoadTexture("assets/vignette.png");
 
     Game::pauseTex = LoadTexture("assets/pause.png");
     Game::retryTex = LoadTexture("assets/retry.png");
@@ -24,8 +43,10 @@ int main(void) {
 
     PlayMusicStream(Game::bgm);
 
+#if defined(PLATFORM_WEB)
+    emscripten_set_main_loop(gameLoop, 60, 1);
+#else
     SetTargetFPS(60);
-
     while (!WindowShouldClose()) {
         Game::update(GetFrameTime());
 
@@ -38,6 +59,7 @@ int main(void) {
 
         EndDrawing();
     }
+#endif
 
     Game::unload();
 
