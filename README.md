@@ -1,6 +1,7 @@
 # Cannon Breakout
 
 Atari-Breakout/Arkanoid but you are using a cannon instead of a paddle.\
+Available on itch.io: https://hmsgobrr.itch.io/cannon-breakout
 Made with [Raylib](https://www.raylib.com/).
 
 ### How To Play
