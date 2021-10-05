@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef GAME_UTILS_H
+#define GAME_UTILS_H
 
 #define GUNMETAL Color{ 18, 44, 52, 255 }
 #define PRUSSIANBLUE Color{ 26, 58, 82, 255 }

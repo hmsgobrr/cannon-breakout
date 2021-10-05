@@ -2,7 +2,7 @@
 #define CANNON_H
 
 #include "raylib.h"
-#include "Utils.h"
+#include "GameUtils.h"
 
 struct Cannon {
     void init();
