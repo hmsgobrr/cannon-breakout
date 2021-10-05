@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "Utils.h"
+#include "GameUtils.h"
 #include <math.h>
 
 Rectangle Game::walls[wallNums] = {

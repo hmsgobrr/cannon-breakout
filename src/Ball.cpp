@@ -1,6 +1,6 @@
 #include "Ball.h"
 #include "Game.h"
-#include "Utils.h"
+#include "GameUtils.h"
 #include "raymath.h"
 
 void Ball::init() {
@@ -35,7 +35,7 @@ void Ball::update(float dt) {
         }
     }
 
-    if (Game::cannon.loaded && (IsKeyPressed(KEY_SPACE) || IsMouseButtonPressed(MOUSE_BUTTON_LEFT))) {
+    if (Game::cannon.loaded && (IsKeyPressed(KEY_SPACE) || IsMouseButtonPressed(0))) {
         Game::cannon.fire(circle);
     }
 
